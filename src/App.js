@@ -4,6 +4,11 @@ import './App.css';
 import Person from './Person/Person'
 
 class App extends Component {
+  state ={
+    person:[
+      {name : 'Sachin', age: 26}
+    ]
+  }
   render() {
     return (
       <div className="App">
@@ -12,7 +17,7 @@ class App extends Component {
           <p>
             Hello I am from App Component!
           </p>
-         <Person name="Sachin" age="26" />
+         <Person name={this.state.person[0].name} age={this.state.person[0].age}> My Hobbies is Coding! </Person>
         </header>
       </div>
     );
