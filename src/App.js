@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './Person/Person.css'
+
 import Person from './Person/Person'
 
 class App extends Component {
@@ -8,9 +10,17 @@ class App extends Component {
     person:[
       {name : 'Sachin', age: 26}
     ],
-    otherState: 'Other State!'
+    otherState: 'Other State!',
+    isDisplay: false
   }
 
+
+  toggleSwitch = ()=>{
+    const doesShow = this.state.isDisplay;
+    return this.setState({
+      isDisplay: !doesShow
+    })
+  }
   chnageEventHandler = (event)=>{
     return this.setState({
       person:[
@@ -43,11 +53,15 @@ class App extends Component {
           <p>
             Hello I am from App Component!
           </p>
-          <button style={style} onClick={this.changeHandler.bind(this, 'Sagar')}>Change Name</button>
-         <Person name={this.state.person[0].name}
+          <button style={style} onClick={this.toggleSwitch}>Change Name</button>
+          { this.state.isDisplay === true ?
+          <div className="Person">
+          <Person name={this.state.person[0].name}
           age={this.state.person[0].age}
           changed={this.chnageEventHandler}> My Hobbies is Coding! </Person>
          <p>{this.state.otherState}</p>
+          </div> : null}
+        
         </header>
       </div>
     );
