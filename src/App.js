@@ -11,7 +11,7 @@ class App extends Component {
     otherState: 'Other State!'
   }
 
-  chnageHandler = (event)=>{
+  chnageEventHandler = (event)=>{
     return this.setState({
       person:[
         {name : event.target.value, age: 31}
@@ -19,7 +19,23 @@ class App extends Component {
       otherState: 'Other State Works!'
     })
   }
+  changeHandler = (name)=>{
+    return this.setState({
+      person:[
+        {name: name, age:26}
+      ]
+    })
+  }
   render() {
+
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid #61dafb',
+      padding: '8px',
+      cursor: 'pointer'
+    }
+
     return (
       <div className="App">
         <header className="App-header">
@@ -27,10 +43,10 @@ class App extends Component {
           <p>
             Hello I am from App Component!
           </p>
-          {/* <button onClick={this.chnageHandler.bind(this, 'Sagar')}>Change Name</button> */}
+          <button style={style} onClick={this.changeHandler.bind(this, 'Sagar')}>Change Name</button>
          <Person name={this.state.person[0].name}
           age={this.state.person[0].age}
-          changed={this.chnageHandler}> My Hobbies is Coding! </Person>
+          changed={this.chnageEventHandler}> My Hobbies is Coding! </Person>
          <p>{this.state.otherState}</p>
         </header>
       </div>
