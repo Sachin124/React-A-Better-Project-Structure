@@ -11,10 +11,10 @@ class App extends Component {
     otherState: 'Other State!'
   }
 
-  chnageHandler = ()=>{
+  chnageHandler = (event)=>{
     return this.setState({
       person:[
-        {name : 'Sagar', age: 31}
+        {name : event.target.value, age: 31}
       ],
       otherState: 'Other State Works!'
     })
@@ -27,10 +27,10 @@ class App extends Component {
           <p>
             Hello I am from App Component!
           </p>
-          <button onClick={this.chnageHandler}>Change Name</button>
+          {/* <button onClick={this.chnageHandler.bind(this, 'Sagar')}>Change Name</button> */}
          <Person name={this.state.person[0].name}
           age={this.state.person[0].age}
-          click={this.chnageHandler}> My Hobbies is Coding! </Person>
+          changed={this.chnageHandler}> My Hobbies is Coding! </Person>
          <p>{this.state.otherState}</p>
         </header>
       </div>
