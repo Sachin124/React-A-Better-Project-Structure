@@ -5,3 +5,20 @@
     text-align: center;
     margin: auto;
 }
+
+.border-hr{
+    border-bottom: 2px solid #61dafb;
+}
+
+.but {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    background-color: rgb(218, 36, 96);
+    color: white;
+
+  }
+  
+  .but:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }
